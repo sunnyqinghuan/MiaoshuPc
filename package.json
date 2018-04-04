@@ -1,0 +1,98 @@
+{
+    "name": "MiaoshuPc",
+    "productName": "秒书",
+    "version": "2.8.2",
+    "description": "秒书 - 心摩手追，高效创作",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder -mwl",
+        "dist:mac": "electron-builder -m",
+        "dist:win": "electron-builder -w",
+        "dist:win64": "electron-builder --win --x64",
+        "dist:win32": "electron-builder --win --ia32",
+        "dist:appx": "electron-builder --win --appx",
+        "publish": "build --win -p always"
+    },
+    "build": {
+        "appId": "com.ciiat.desk.miaoshu",
+        "nsis": {
+            "oneClick": false,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "allowToChangeInstallationDirectory": true
+        },
+        "appx": {
+            "applicationId": "com.ciiat.miaoshu",
+            "backgroundColor": "#f6f6f6",
+            "displayName": "秒书",
+            "identityName": "35230WriterEasy.293109894C554",
+            "publisher": "CN=$username$",
+            "publisherDisplayName": "Rain Fu",
+            "languages": "zh_CN"
+        },
+        "dmg": {
+            "backgroundColor": "#10aeff"
+        },
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                },
+                {
+                    "target": "appx"
+                }
+            ],
+            "icon": "build/icon.ico"
+        },
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "sunnyqinghuan",
+                "repo": "electron-updater-example"
+            }
+        ],
+        "mac": {
+            "target": [
+                {
+                    "target": "default"
+                }
+            ],
+            "identity": "com.ciiat.osx.miaoshu",
+            "bundleVersion": "28000",
+            "bundleShortVersion": "2.8.0",
+            "type": "distribution",
+            "minimumSystemVersion": "10.7",
+            "icon": "build/icon.icns",
+            "category": "public.app-category.productivity"
+        }
+    },
+    "keywords": [
+        "Electron",
+        "思维导图",
+        "正版图片",
+        "图文排版",
+        "写作",
+        "unsplash",
+        "pxiabay",
+        "QQ空间",
+        "微博",
+        "朋友圈",
+        "今日头条",
+        "Markdown",
+        "企鹅号"
+    ],
+    "author": "深圳市摩岩网络科技有限公司",
+    "license": "@摩岩网络",
+    "devDependencies": {
+        "electron": "^1.8.4",
+        "electron-builder": "^20.6.2"
+    },
+    "dependencies": {
+        "electron-updater": "^2.21.4"
+    }
+}
